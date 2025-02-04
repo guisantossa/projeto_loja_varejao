@@ -2,15 +2,7 @@ import streamlit as st
 import pandas as pd
 from sqlalchemy.orm import Session
 from models.models import Cliente, Produto, Venda, Loja, Vendedor, ProdutosVenda, Categoria
-from database.database import SessionLocal
-
-# Função para obter a sessão do banco de dados
-def get_db():
-    db = SessionLocal()
-    try:
-        yield db
-    finally:
-        db.close()
+from database.database import get_db
 
 # Função para exibir clientes
 def exibir_clientes(db: Session):
